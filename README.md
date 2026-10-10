@@ -532,6 +532,31 @@ Real-time type checking via Language Server Protocol. Catches errors before Clau
 |---|---|
 | **Install** | `claude plugin add anthropic/typescript-lsp` |
 
+### ngx-json-render (Angular)
+
+Generative UI for Angular. The model emits a JSON spec constrained to a catalog of your components, and `<json-render>` renders it as real Angular components: signals, `OnPush`, zoneless, no `innerHTML`. The skill covers catalogs, registries, streaming (`injectUIStream`, `injectChatUI`) and component tests; a second skill covers the ready 29-component Angular Material catalog. It's an Angular renderer for Vercel's [json-render](https://github.com/vercel-labs/json-render), so specs stay portable to the React, Vue and Svelte renderers.
+
+| | |
+|---|---|
+| **Author** | shteynu |
+| **Install** | `npx skills add shteynu/ngx-json-render --skill ngx-json-render --skill ngx-json-render-material` |
+| **Source** | [shteynu/ngx-json-render](https://github.com/shteynu/ngx-json-render) |
+
+### render-policy (Safe Agent Output)
+
+For any UI that shows model output. `safe-agent-html` finds `innerHTML`, `dangerouslySetInnerHTML` and `[innerHTML]` sinks fed by agent text and swaps them for a sanitize-to-fragment adapter with a policy for image hosts and links, so a prompt-injected reply can't leak data through a remote image URL or a `javascript:` link. Plain DOM, React, Angular, streaming replies and Mermaid. `mcp-app-csp` checks the CSP an MCP App declares, with `mcp-app-lint`.
+
+| | |
+|---|---|
+| **Author** | shteynu |
+| **Source** | [shteynu/render-policy](https://github.com/shteynu/render-policy) |
+
+Install:
+```bash
+claude plugin marketplace add shteynu/render-policy
+claude plugin install render-policy@render-policy
+```
+
 ### Baseline UI / Accessibility / Motion+Performance
 
 Three-skill pipeline. Run them in sequence after Claude generates a page:
@@ -680,6 +705,8 @@ npx ui-skills add fixing-motion-performance
 | Baseline UI | Skill | Polish | — | One command |
 | Fixing Accessibility | Skill | A11y | — | One command |
 | Fixing Motion/Perf | Skill | Perf | — | One command |
+| ngx-json-render | Skill | Angular | — | One command |
+| render-policy | Plugin | Security | — | Two commands |
 
 ### Context budget
 
